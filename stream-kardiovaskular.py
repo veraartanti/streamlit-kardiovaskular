@@ -9,16 +9,15 @@ model = pickle.load(open('kardiovaskular.sav', 'rb'))
 st.title('Klasifikasi Penyakit Kardiovaskular')
 
 # Sidebar untuk input data
-st.sidebar.header('Dashboard Edukasi Pencegahan')
-
-# Konten sidebar
-st.sidebar.markdown('### Pencegahan Penyakit Kardiovaskular:')
-st.sidebar.markdown('- **Hindari merokok**')
-st.sidebar.markdown('- **Tetap aktif secara fisik**')
-st.sidebar.markdown('- **Konsumsi makanan sehat dan seimbang**')
-st.sidebar.markdown('- **Pantau tekanan darah secara teratur**')
-st.sidebar.markdown('- **Batasi konsumsi alkohol**')
-st.sidebar.markdown('- **Kelola stres dengan baik**')
+st.sidebar.image('heart_icon.png', width=100)
+st.sidebar.header('Pencegahan Penyakit Kardiovaskular')
+st.sidebar.markdown('### **Langkah-langkah Pencegahan:**')
+st.sidebar.markdown('- **Hindari Merokok**')
+st.sidebar.markdown('- **Tetap Aktif Secara Fisik**')
+st.sidebar.markdown('- **Konsumsi Makanan Sehat**')
+st.sidebar.markdown('- **Pantau Tekanan Darah**')
+st.sidebar.markdown('- **Batasi Konsumsi Alkohol**')
+st.sidebar.markdown('- **Kelola Stres**')
 
 # Input data
 st.header('Masukkan Data Pasien')
@@ -37,7 +36,7 @@ with col2:
 heart_diagnosis = ''
 
 # membuat tombol prediksi
-if st.button('Klasifikasi Penyakit Kardiovaskular'):
+if st.button('Cek Klasifikasi'):
     heart_prediction = model.predict([[time, serum_creatinine, ejection_fraction, age, serum_sodium, creatinine_phosphokinase, platelets]])
 
     if heart_prediction[0] == 1:
@@ -46,5 +45,5 @@ if st.button('Klasifikasi Penyakit Kardiovaskular'):
         heart_diagnosis = '**Pasien Tidak Meninggal**'
 
 # Hasil Prediksi
-st.header('Hasil Prediksi')
+st.header('Hasil Klasifikasi')
 st.markdown(f'Hasil klasifikasi: {heart_diagnosis}')
