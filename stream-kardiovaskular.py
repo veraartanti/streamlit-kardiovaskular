@@ -34,11 +34,11 @@ with col3:
 heart_diagnosis =''
 
 # membuat tombol prediksi
-if st.button('Cek Klasifikasi'):
+if st.button('Klasifikasi Penyakit Kardiovaskular'):
     heart_prediction = model.predict([[time, serum_creatinine, ejection_fraction, age, serum_sodium, creatinine_phosphokinase, platelets]])
 
     if heart_prediction[0] == 1:
         heart_diagnosis = 'Pasien Meninggal'
     else:
         heart_diagnosis = 'Pasien Tidak Meninggal'
-st.success(f'Hasil Klasifikasi: {klasifikasi}')
+st.success(heart_diagnosis)
