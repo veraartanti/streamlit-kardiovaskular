@@ -41,4 +41,4 @@ if st.button('Cek Klasifikasi'):
         heart_diagnosis = 'Pasien Meninggal'
     else:
         heart_diagnosis = 'Pasien Tidak Meninggal'
-st.success(f'Hasil Klasifikasi: {prediction}')
+st.success(f'Hasil Klasifikasi: {klasifikasi}')
